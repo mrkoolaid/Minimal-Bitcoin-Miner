@@ -229,8 +229,8 @@ namespace MiniMiner
                     Console.Write("ERROR: ");
                     Console.WriteLine(e.Message);
                 }
-                Console.WriteLine();
-                Console.Write("Hit 'Enter' to try again...");
+                
+                Console.Write(Environment.NewLine + "Hit 'Enter' to try again...");
                 Console.ReadLine();
             }
         }
@@ -241,8 +241,7 @@ namespace MiniMiner
             Console.Clear();
             Console.WriteLine("*****************************");
             Console.WriteLine("*** Minimal Bitcoin Miner ***");
-            Console.WriteLine("*****************************");
-            Console.WriteLine();
+            Console.WriteLine("*****************************" + Environment.NewLine);
         }
 
         private static Pool SelectPool()
@@ -257,28 +256,36 @@ namespace MiniMiner
         private static Work GetWork()
         {
             ClearConsole();
+
             Print("Requesting Work from Pool...");
             Print("Server URL: " + _pool.Url.ToString());
             Print("User: " + _pool.User);
             Print("Password: " + _pool.Password);
+
             return _pool.GetWork();
         }
 
         private static void SendShare(byte[] share)
         {
             ClearConsole();
+
             Print("*** Found Valid Share ***");
             Print("Share: " + Utils.ToString(_work.Current));
             Print("Nonce: " + Utils.ToString(_nonce));
             Print("Hash: " + Utils.ToString(_work.Hash));
             Print("Sending Share to Pool...");
+
             if (_pool.SendShare(share))
+            {
                 Print("Server accepted the Share!");
+            }
             else
+            {
                 Print("Server declined the Share!");
+            }
 
             Console.Write("Hit 'Enter' to continue...");
-            Console.ReadLine();
+            Console.ReadKey();
         }
 
         private static DateTime _lastPrint = DateTime.Now;
@@ -298,8 +305,7 @@ namespace MiniMiner
 
         private static void Print(string msg)
         {
-            Console.WriteLine(msg);
-            Console.WriteLine();
+            Console.WriteLine(msg + Environment.NewLine);
         }
 
         private static string ReadLineDefault(string defaultValue)
