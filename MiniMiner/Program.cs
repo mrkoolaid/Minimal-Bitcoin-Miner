@@ -15,7 +15,9 @@ namespace MiniMiner
         {
             byte[] bytes = new byte[input.Length / 2];
             for (int i = 0, j = 0; i < input.Length; j++, i += 2)
+            {
                 bytes[j] = byte.Parse(input.Substring(i, 2), System.Globalization.NumberStyles.HexNumber);
+            }
 
             return bytes;
         }
@@ -24,7 +26,9 @@ namespace MiniMiner
         {
             string result = "";
             foreach (byte b in input)
+            {
                 result += b.ToString("x2");
+            }
 
             return result;
         }
@@ -33,7 +37,9 @@ namespace MiniMiner
         {
             string result = "";
             foreach (byte b in BitConverter.GetBytes(value))
+            {
                 result += b.ToString("x2");
+            }
 
             return result;
         }
@@ -43,12 +49,15 @@ namespace MiniMiner
             //32 bits = 4*4 bytes = 4*4*2 chars
             string result = "";
             for (int i = 0; i < input.Length; i += 8)
+            {
                 for (int j = 0; j < 8; j += 2)
                 {
                     //append byte (2 chars)
                     result += input[i - j + 6];
                     result += input[i - j + 7];
                 }
+            }
+
             return result;        
         }
 
@@ -74,8 +83,8 @@ namespace MiniMiner
             _nonceOffset = Data.Length - 4;
             _ticks = DateTime.Now.Ticks;
             _hasher = new SHA256Managed();
-
         }
+
         private SHA256Managed _hasher;
         private long _ticks;
         private long _nonceOffset;
@@ -92,16 +101,24 @@ namespace MiniMiner
                 //count trailing bytes that are zero
                 int zeroBytes = 0;
                 for (int i = 31; i >= 28; i--, zeroBytes++)
-                    if(doubleHash[i] > 0)
+                {
+                    if (doubleHash[i] > 0)
+                    {
                         break;
+                    }
 
-                //standard share difficulty matched! (target:ffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000)
-                if(zeroBytes == 4)
-                    return true;
+                    //standard share difficulty matched! (target:ffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000)
+                    if (zeroBytes == 4)
+                    {
+                        return true;
+                    }
 
-                //increase
-                if(++nonce == uint.MaxValue)
-                    nonce = 0;
+                    //increase
+                    if (++nonce == uint.MaxValue)
+                    {
+                        nonce = 0;
+                    }
+                }
             }
             return false;
         }
@@ -135,7 +152,7 @@ namespace MiniMiner
             int passwordStart = login.IndexOf(':');
             string user = login.Substring(0, passwordStart);
             string password = login.Substring(passwordStart + 1, urlStart - passwordStart - 1);
-            string url = "http://"+login.Substring(urlStart + 1);
+            string url = "http://" + login.Substring(urlStart + 1);
             Url = new Uri(url);
             User = user;
             Password = password;
@@ -155,13 +172,21 @@ namespace MiniMiner
             byte[] byteArray = Encoding.UTF8.GetBytes(request);
             webRequest.ContentLength = byteArray.Length;
             using (Stream dataStream = webRequest.GetRequestStream())
+            {
                 dataStream.Write(byteArray, 0, byteArray.Length);
+            }
 
             string reply = "";
             using (WebResponse webResponse = webRequest.GetResponse())
-            using (Stream str = webResponse.GetResponseStream())
-            using (StreamReader reader = new StreamReader(str))
-                reply = reader.ReadToEnd();
+            {
+                using (Stream str = webResponse.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(str))
+                    {
+                        reply = reader.ReadToEnd();
+                    }
+                }
+            }
 
             return reply;
         }

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("MiniMiner")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MiniMiner - A lithander Fork")]
+[assembly: AssemblyDescription("Bitcoin Miner")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MiniMiner")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("MkMiniMiner")]
+[assembly: AssemblyCopyright("Copyright © MrKoolaid 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

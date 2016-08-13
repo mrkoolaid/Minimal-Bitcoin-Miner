@@ -4,3 +4,9 @@ C:\Users\BIGDADDY\Desktop\projects\Minimal-Bitcoin-Miner\MiniMiner\bin\Debug\Min
 C:\Users\BIGDADDY\Desktop\projects\Minimal-Bitcoin-Miner\MiniMiner\obj\Debug\MiniMiner.csprojResolveAssemblyReference.cache
 C:\Users\BIGDADDY\Desktop\projects\Minimal-Bitcoin-Miner\MiniMiner\obj\Debug\MiniMiner.exe
 C:\Users\BIGDADDY\Desktop\projects\Minimal-Bitcoin-Miner\MiniMiner\obj\Debug\MiniMiner.pdb
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\bin\Debug\MiniMiner.exe.config
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\obj\Debug\MiniMiner.exe
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\obj\Debug\MiniMiner.pdb
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\bin\Debug\MiniMiner.exe
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\bin\Debug\MiniMiner.pdb
+C:\Users\BIGDADDY\Desktop\projects\mini-miner\MiniMiner\obj\Debug\MiniMiner.csprojResolveAssemblyReference.cache
